@@ -16,4 +16,5 @@ peak at Column 1-5;
 - the values of all explanatory variables are normalized continous variables with values between 0 and 1
 - the target-variable is a nominal categorical variable (0 or 1)
 - distinction between pathologies is only possible when using the original dataset - 
-kaggle dataset is already an abstraction (structural problem of "only" a heatbeat)
+kaggle dataset is already an abstraction (structural problem of "only" a heatbeat)7
+- none of the explanatory variables is normal distributed (Shapiro-Wilk-Test)
