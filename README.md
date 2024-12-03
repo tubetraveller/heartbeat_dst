@@ -59,8 +59,8 @@ To get started with this project:
    ```
 
 ## Data Sources
-- **MIT-BIH Arrhythmia Dataset**: Available at [PhysioNet](https://physionet.org/content/mitdb/1.0.0/).
-- **PTB Diagnostic ECG Database**: Available at [PhysioNet](https://physionet.org/content/ptbdb/1.0.0/).
+- **MIT-BIH Arrhythmia Dataset**: Available at [Kaggle](https://www.kaggle.com/datasets/shayanfazeli/heartbeat?select=ptbdb_normal.csv).
+- **PTB Diagnostic ECG Database**: Available at [Kaggle](https://www.kaggle.com/datasets/shayanfazeli/heartbeat?select=ptbdb_normal.csv).
 
 ## Usage
 - **EDA**: Explore the data using the Jupyter notebooks provided in the `EDA` folder.
@@ -68,7 +68,7 @@ To get started with this project:
 - **Model Training**: The `Models` folder contains scripts for training machine learning models for heartbeat classification.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. 
 ## Acknowledgments
 We would like to thank [Kaggle](https://www.kaggle.com) for providing the datasets used in this project.
 
