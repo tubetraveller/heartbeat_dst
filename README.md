@@ -70,5 +70,5 @@ To get started with this project:
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ## Acknowledgments
-We would like to thank [Kaggle](https://www.kaggle.com) and [PhysioNet](https://physionet.org) for providing the datasets used in this project.
+We would like to thank [Kaggle](https://www.kaggle.com) for providing the datasets used in this project.
 
