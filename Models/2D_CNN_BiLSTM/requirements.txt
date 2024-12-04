@@ -61,8 +61,8 @@ bleach==6.1.0
 blinker==1.8.2
 bokeh==3.6.0
 boltons==24.0.0
-boto3==1.35.44
-botocore==1.35.36
+boto3==1.35.0, <1.36.0
+botocore==1.35.16, <1.36.0
 Bottleneck==1.4.2
 brokenaxes==0.6.2
 Brotli==1.1.0
