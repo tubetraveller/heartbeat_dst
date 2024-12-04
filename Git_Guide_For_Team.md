@@ -99,7 +99,7 @@ Open [GitHub repository link](https://github.com/tubetraveller/heartbeat_dst).
 
 b. **Create a Pull Request:**
 
-- Click on the **"Compare & pull request"** button that should appear after pushing the branch.
+- Click on the **"Pull request"** button that should appear after pushing the branch.
 - Write a realy brief summary of what changes were made.
 - Submit the pull request for review.
 
