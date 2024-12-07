@@ -67,3 +67,29 @@ checkpoint
 # Keras SavedModel Verzeichnis
 saved_model.pb
 variables/
+
+# Datensätze (große Dateien, die nicht versioniert werden sollten)
+*.csv
+*.tsv
+*.json
+*.xml
+*.xls
+*.xlsx
+*.parquet
+*.h5
+*.db
+
+# Modelle und Trainingsergebnisse
+*.hdf5
+*.h5
+*.ckpt
+*.onnx
+*.pb
+*.pth
+*.pt
+*.joblib
+*.pickle
+*.pkl
+
+# TensorFlow SavedModel Verzeichnis
+saved_model/
