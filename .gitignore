@@ -2,6 +2,7 @@
 *.pyc
 __pycache__/
 .venv/
+venv/
 .ipynb_checkpoints/
 
 # Jupyter Notebook
@@ -13,3 +14,56 @@ __pycache__/
 
 # Sonstige
 .DS_Store
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Jupyter Notebook Laufzeit-Dateien
+profile_default/
+.ipython/
+
+ Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
+*.pyd
+
+# Cache-Verzeichnisse
+__pycache__/
+*.log
+
+# Distribution / Build Verzeichnisse
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs
+*.log
+*.out
+*.err
+
+# Debug
+*.prof
+*.dat
+*.tmp
+*.pid
+
+# Visual Studio Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Allgemeine Editor-Dateien
+*.swp
+*~
+.DS_Store
+
+# TensorFlow Checkpoints
+checkpoint
+*.index
+*.meta
+
+# Keras SavedModel Verzeichnis
+saved_model.pb
+variables/
