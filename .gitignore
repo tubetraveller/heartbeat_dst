@@ -5,6 +5,12 @@ __pycache__/
 venv/
 .ipynb_checkpoints/
 
+venv/
+*.dll
+*.pyd
+__pycache__/
+*.log
+
 # Jupyter Notebook
 .ipynb_checkpoints/
 
