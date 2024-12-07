@@ -1,0 +1,15 @@
+# Python
+*.pyc
+__pycache__/
+.venv/
+.ipynb_checkpoints/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+*.log
+
+# Sonstige
+.DS_Store
