@@ -1,13 +1,19 @@
+import os
 import pandas as pd
 import streamlit as st
 
-# Load the datasets with caching to prevent repeated loading
+# Dynamically determine the base directory (one level up from the current script)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Dynamically construct the path to the Data folder
+DATA_DIR = os.path.join(BASE_DIR, 'Data')
+
 @st.cache_data
 def load_datasets():
-    mitbih_train = pd.read_csv('heartbeat_dst/Data/mitbih_test.csv', header=None)
-    mitbih_test = pd.read_csv('heartbeat_dst/Data/mitbih_test.csv', header=None)
-    ptbdb_abnormal = pd.read_csv('heartbeat_dst/Data/ptbdb_abnormal.csv', header=None)
-    ptbdb_normal = pd.read_csv('heartbeat_dst/Data/ptbdb_normal.csv', header=None)
+    mitbih_train = pd.read_csv(os.path.join(DATA_DIR, 'mitbih_train.csv'), header=None)
+    mitbih_test = pd.read_csv(os.path.join(DATA_DIR, 'mitbih_test.csv'), header=None)
+    ptbdb_abnormal = pd.read_csv(os.path.join(DATA_DIR, 'ptbdb_abnormal.csv'), header=None)
+    ptbdb_normal = pd.read_csv(os.path.join(DATA_DIR, 'ptbdb_normal.csv'), header=None)
     
     return mitbih_train, mitbih_test, ptbdb_abnormal, ptbdb_normal
 
