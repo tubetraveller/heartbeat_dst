@@ -4,10 +4,10 @@ import streamlit as st
 # Load the datasets with caching to prevent repeated loading
 @st.cache_data
 def load_datasets():
-    mitbih_train = pd.read_csv('F:/course/my_project/Heart/Data/mitbih_train.csv', header=None)
-    mitbih_test = pd.read_csv('F:/course/my_project/Heart/Data/mitbih_test.csv', header=None)
-    ptbdb_abnormal = pd.read_csv('F:/course/my_project/Heart/Data/ptbdb_abnormal.csv', header=None)
-    ptbdb_normal = pd.read_csv('F:/course/my_project/Heart/Data/ptbdb_normal.csv', header=None)
+    mitbih_train = pd.read_csv('heartbeat_dst/Data/mitbih_test.csv', header=None)
+    mitbih_test = pd.read_csv('heartbeat_dst/Data/mitbih_test.csv', header=None)
+    ptbdb_abnormal = pd.read_csv('heartbeat_dst/Data/ptbdb_abnormal.csv', header=None)
+    ptbdb_normal = pd.read_csv('heartbeat_dst/Data/ptbdb_normal.csv', header=None)
     
     return mitbih_train, mitbih_test, ptbdb_abnormal, ptbdb_normal
 
