@@ -1,2 +1,11 @@
-Data/
+# Ignore all __pycache__ directories recursively
+__pycache__/
 
+# Ignore a specific __pycache__ directory inside App
+App/__pycache__/
+
+# Ignore a specific __pycache__ directory inside EDA/App
+EDA/App/__pycache__/
+
+# Ignore the Data folder and all its contents
+Data/
