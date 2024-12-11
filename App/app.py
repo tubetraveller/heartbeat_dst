@@ -1,13 +1,18 @@
+import os
 import streamlit as st
 from data_loading_auditing import load_datasets, display_data_loading_code, data_audit  # Import functions
 from introduction import introduction_page  # Import introduction page function
 from EDA.classification import EDA  # Import the EDA class for classification
 from EDA.correlation_matrix import CorrelationMatrix  # Import the Correlation Matrix class
 
+# Get the absolute path to the directory containing this script
+base_dir = os.path.dirname(os.path.abspath(__file__))
 
+# Construct the path to the CSS file relative to this script
+css_file_path = os.path.join(base_dir, 'assets', 'styles.css')
 
 # Load the CSS file
-with open('App/assets/styles.css') as f:
+with open(css_file_path) as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # Sidebar Navigation
