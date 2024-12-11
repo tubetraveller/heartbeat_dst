@@ -48,7 +48,7 @@ elif page == "EDA":
     st.title("Exploratory Data Analysis (EDA)")
 
     # Sidebar Navigation for EDA Sub-pages
-    eda_subpage = st.sidebar.selectbox("Choose an EDA Sub-page", ["Class Distribution", "Correlation Matrix", "Max's Analysis", "Sreekar's Analysis"])
+    eda_subpage = st.sidebar.selectbox("Choose an EDA Sub-page", ["The Individual Signals", "Class Distribution", "Correlation Matrix", "Relationship Between Averaged and Individual Signal", "Sreekar's Analysis"])
 
     # Sub-page logic for EDA
     if eda_subpage == "Class Distribution":
@@ -58,3 +58,11 @@ elif page == "EDA":
     elif eda_subpage == "Correlation Matrix":
         correlation_matrix = CorrelationMatrix()  # Create an instance of the CorrelationMatrix class
         correlation_matrix.show_correlation_matrix(mitbih_train, mitbih_test, ptbdb_normal, ptbdb_abnormal)
+
+    elif eda_subpage == "The Individual Signals":
+        from EDA.individual_signals import show_individual_signals
+        show_individual_signals()
+
+    elif eda_subpage == "Relationship Between Averaged and Individual Signal":
+        from EDA.relationship_signals import show_relationship_signals
+        show_relationship_signals()
