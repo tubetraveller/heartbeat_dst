@@ -66,3 +66,14 @@ elif page == "EDA":
     elif eda_subpage == "Relationship Between Averaged and Individual Signal":
         from EDA.relationship_signals import show_relationship_signals
         show_relationship_signals()
+
+elif page == "Models":
+    st.title("Deep Learning Models")
+    model_subpage = st.sidebar.selectbox(
+        "Choose a Model Sub-page",
+        ["1D CNN Interpretability and Preprocessing"]
+    )
+
+    if model_subpage == "1D CNN Interpretability and Preprocessing":
+        from Models.cnn_interpretability_preprocessing import show_1d_cnn_interpretability_preprocessing
+        show_1d_cnn_interpretability_preprocessing()
