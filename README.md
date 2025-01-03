@@ -35,8 +35,7 @@ This project leverages multiple approaches for data exploration and model buildi
 
 3. **Machine Learning Models**: Multiple machine learning models are developed to classify the heartbeats, focusing on techniques such as:
    - **Short Models explanation (CNN)**: by Max  
-   - **Bidirectional Long Short-Term Memory (BiLSTM)**: Combined with CNN layers to capture both spatial features and sequential dependencies in the ECG signals. The CNN layers extract spatial features, while the BiLSTM layers capture temporal relationships across different segments of the heartbeat signal.
-   - **Models explanation**: by Sreekar
+   - **Bidirectional Long Short-Term Memory (BiLSTM)**: Combined with CNN layers to capture both spatial features and sequential dependencies in the ECG signals. The CNN layers extract spatial features, while the BiLSTM layers capture temporal relationships across different segments of the heartbeat signal. 
      
 4. **Model Interpretability**: Approaches like SHAP and LIME are applied to understand the feature importance and interpret the models' decisions.
 

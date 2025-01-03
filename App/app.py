@@ -48,7 +48,7 @@ elif page == "EDA":
     st.title("Exploratory Data Analysis (EDA)")
 
     # Sidebar Navigation for EDA Sub-pages
-    eda_subpage = st.sidebar.selectbox("Choose an EDA Sub-page", ["Class Distribution", "Correlation Matrix", "Max's Analysis", "Sreekar's Analysis"])
+    eda_subpage = st.sidebar.selectbox("Choose an EDA Sub-page", ["Class Distribution", "Correlation Matrix", "Individual Signals", "Signal Relationship",])
 
     # Sub-page logic for EDA
     if eda_subpage == "Class Distribution":
@@ -58,3 +58,26 @@ elif page == "EDA":
     elif eda_subpage == "Correlation Matrix":
         correlation_matrix = CorrelationMatrix()  # Create an instance of the CorrelationMatrix class
         correlation_matrix.show_correlation_matrix(mitbih_train, mitbih_test, ptbdb_normal, ptbdb_abnormal)
+
+    elif eda_subpage == "Individual Signals":
+        from EDA.individual_signals import show_individual_signals
+        show_individual_signals()
+
+    elif eda_subpage == "Signal Relationship":
+        from EDA.relationship_signals import show_relationship_signals
+        show_relationship_signals()
+
+elif page == "Models":
+    st.title("Deep Learning Models")
+    model_subpage = st.sidebar.selectbox(
+        "Choose a Model Sub-page",
+        ["1D CNN Interpretability and Preprocessing", "2D CNN-BiLSTM"]
+    )
+
+    if model_subpage == "1D CNN Interpretability and Preprocessing":
+        from Models.cnn_interpretability_preprocessing import show_1d_cnn_interpretability_preprocessing
+        show_1d_cnn_interpretability_preprocessing()
+
+    elif model_subpage == "2D CNN-BiLSTM":
+        from Models.model_2D_CNN_BiLSTM.CNN_BiLSTM_2D import show_2d_cnn_bilstm
+        show_2d_cnn_bilstm()
