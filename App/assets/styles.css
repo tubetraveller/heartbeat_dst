@@ -35,8 +35,12 @@ p {
 
 /* Increase font size for dataframes and tables */
 .css-1ex1afd.e1fqkh3o2, .stDataFrame {
-    font-size: 1.1rem !important;
+    font-size: 1.5rem !important;
     text-align: center !important;
+}
+/* Add padding to the table for better spacing */
+.stDataFrame td, .stDataFrame th {
+    padding: 20px !important;  /* Add padding to table cells */
 }
 
 /* General styling for chart labels */
