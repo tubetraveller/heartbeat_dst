@@ -9,3 +9,6 @@ App/EDA/__pycache__/
 
 # Ignore the Data folder and all its contents
 Data/
+
+# Ignore the logs and all its contents
+Models/2D_CNN_BiLSTM/logs
