@@ -39,6 +39,7 @@ This project leverages multiple approaches for data exploration and model buildi
 3. **Machine Learning Models**: Multiple machine learning models are developed to classify the heartbeats, focusing on techniques such as:
    - **Bidirectional Long Short-Term Memory (BiLSTM)**: Combined with CNN layers to capture both spatial features and sequential dependencies in the ECG signals. The CNN layers extract spatial features, while the BiLSTM layers capture temporal relationships across different segments of the heartbeat signal.
    - **Interpretability and Preprocessing - 1D-CNN**: An approach to enable interpretability of the model through extended data preprocessing. The classification model is built using a Residual 1D-CNN architecture. The model leverages residual blocks to capture spatial and temporal patterns in the preprocessed ECG signals.
+
      
 4. **Model Interpretability**: Approaches like SHAP and LIME are applied to understand the feature importance and interpret the models' decisions.
 

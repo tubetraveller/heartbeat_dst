@@ -1,0 +1,14 @@
+# Ignore all __pycache__ directories recursively
+__pycache__/
+
+# Ignore a specific __pycache__ directory inside App
+App/__pycache__/
+
+# Ignore a specific __pycache__ directory inside EDA/App
+App/EDA/__pycache__/
+
+# Ignore the Data folder and all its contents
+Data/
+
+# Ignore the logs and all its contents
+Models/2D_CNN_BiLSTM/logs
