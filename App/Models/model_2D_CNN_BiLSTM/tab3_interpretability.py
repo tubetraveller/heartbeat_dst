@@ -112,8 +112,8 @@ def lime_plot_streamlit():
             .custom-lime-container {
                 max-width: 900px;  /* Adjust max width */
                 max-height: 700px;  /* Adjust max height */
-                margin: auto;       /* Center alignment */
-                overflow: auto;     /* Add scrollbars if necessary */
+                margin: off;       /* Center alignment */
+                overflow: on;     /* Add scrollbars if necessary */
                 border: 0.5px solid #ddd;  /* Optional: Add border for better visualization */
                 padding: 0.5px;      /* Optional: Add padding */
                 box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
@@ -135,7 +135,7 @@ def lime_plot_streamlit():
         """
 
         # Render the styled HTML in Streamlit
-        st.components.v1.html(html_with_css, height=1300, scrolling=True)  # Adjust height to fit content
+        st.components.v1.html(html_with_css, height=1200, scrolling=True)  # Adjust height to fit content
     except FileNotFoundError:
         st.error(f"File not found: {html_path}")
     except Exception as e:
@@ -153,9 +153,38 @@ def local_interpretability():
     tab1, tab2 = st.tabs(["SHAP", "LIME"])
     with tab1:
         shap_plot_streamlit()  # Generate and display SHAP plot
+        st.write("""
+- **Model Interpretability**:
+  - The SHAP value visualizations provide insights into how the model makes predictions by identifying feature contributions for each class.
+- **Class-Specific Explanations**:
+  - **Predicted Class: F (Fusion beat)**: Highlights specific signal regions with both positive (red) and negative (blue) contributions that influence the prediction.
+  - **N (Normal)** and **S (Supraventricular ectopic beat)**: SHAP values illustrate contributing areas, helping understand potential misclassification risks.
+  - **V (Ventricular ectopic beat)** and **Q (Unclassifiable beat)**: Clear regions of importance reflect the model's focus on class-specific signal characteristics.
+- **Positive Contribution**:
+  - Positive SHAP values (red) indicate features pushing the model toward a specific class.
+  - Negative SHAP values (blue) highlight features reducing the likelihood of a given class.
+- **Model Strengths**:
+  - The analysis shows that the model learns meaningful patterns and focuses on distinct ECG signal areas, aligning with domain knowledge.
+- **Conclusion**:
+  - SHAP-based interpretability validates the model's decision-making process and supports its ability to generalize effectively across classes.
+""")
     with tab2:
         lime_plot_streamlit()  # Generate and display LIME explanation
-
+        st.write("""
+- **Model Prediction Confidence**:
+  - The model confidently predicts the instance as **Class F (Fusion beat)** with a probability of **1.00**, indicating high certainty in its decision.
+- **Feature Contribution Analysis**:
+  - **Key Positive Contributors**:
+    - **Feature 68 (2.57)**, **Feature 69 (2.68)**, and **Feature 70 (1.34)** strongly drive the prediction toward Class F.
+  - **Key Negative Contributors**:
+    - Features like **Feature 73 (-1.33)** and **Feature 72 (-1.11)** reduce the likelihood of other classes, reinforcing the decision for Class F.
+- **Interpretability Insights**:
+  - The LIME explanation highlights the specific features that the model relied upon for its prediction, ensuring transparency in decision-making.
+- **Model Strengths**:
+  - Pinpointing positive and negative feature contributions demonstrates interpretability of model and alignment with explainable AI principles.
+- **Conclusion**:
+  - LIME validates the reliability of the model's prediction by linking it to influential features, offering confidence in its performance for Class F.
+""")
 
 @st.cache_resource
 # Function to load SHAP values
@@ -189,5 +218,25 @@ def interpretability():
     with tab1:
         local_interpretability()  # Call Local Interpretability
     with tab2:
-        st.write("Global interpretation placeholder.")
+        
         global_shap_plot_with_image()
+        st.write("""
+- **Feature Value Insights**:
+  - The color gradient (blue to red) represents feature values:
+    - **Red (High values)**: Positive contribution to the model’s prediction.
+    - **Blue (Low values)**: Negative impact or reduced contribution to the prediction.
+- **Top Influential Features**:
+  - **Feature 79**: The most impactful feature, with consistently high SHAP values, strongly influencing the model’s output.
+  - **Feature 2** and **Feature 78**: Significant contributors, with a mix of positive (red) and negative (blue) impacts depending on their values.
+- **Feature Contribution Patterns**:
+  - **Feature 83** and **Feature 101**: Split between high and low contributions, crucial for distinguishing certain classes.
+  - **Feature 77 and Feature 39**: Moderate but consistent impact, likely influencing edge cases or minority class predictions.
+- **Global Impact on Predictions**:
+  - **Feature 79** and **Feature 2** dominate globally, reliably influencing predictions across samples.
+  - Their wide SHAP value distribution reflects sensitivity to subtle variations in data.
+- **Class-Specific Behavior**:
+  - Features like **Feature 79** and **Feature 78** likely drive predictions for dominant classes (**N** and **Q**).
+  - Moderate contributors (e.g., **Feature 77**) assist in predicting minority classes such as **S** or **F**.
+- **Conclusion**:
+  - The SHAP summary plot highlights specific feature contributions, validating the model's decisions and aligning them with meaningful data patterns.
+""")

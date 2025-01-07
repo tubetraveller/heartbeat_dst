@@ -13,11 +13,9 @@ def model_overview():
 
     if section == "Why 2D-CNN-BiLSTM":
         st.markdown("""
-        ### Why 2D-CNN-BiLSTM with XGBoost?
 
         This model combines **2D-CNN** for spatial feature extraction and **BiLSTM** for temporal dependencies, followed by **XGBoost** for robust classification. Here's why I chose this architecture:
 
-        #### Why Use 2D-CNN?
 
         1. **Representation of ECG as 2D Data**:
             - ECG signals, originally 1D time-series data, are reshaped into **2D matrices** during preprocessing.
