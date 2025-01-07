@@ -5,7 +5,7 @@ import streamlit as st
 import shap
 import matplotlib.pyplot as plt
 import numpy as np
-from Models.model_2D_CNN_BiLSTM.tab2_model_quality import load_cnn_bilstm_model, load_features
+from Models.model_2D_CNN_BiLSTM.tab2_model_quality import load_cnn_bilstm_model, load_features, load_xgb_model
 from io import BytesIO
 import lime.lime_tabular
 import streamlit.components.v1 as components
@@ -53,7 +53,7 @@ def shap_plot_streamlit():
 
     # Select a sample for SHAP analysis
     X_val_sample = X_val_fold_reshaped[27031:27032]
-    st.write(f"Sample shape for SHAP: {X_val_sample.shape}")
+    #st.write(f"Sample shape for SHAP: {X_val_sample.shape}")
 
     # Predict the class for the sample
     predicted_probs = model.predict(X_val_sample)

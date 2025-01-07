@@ -5,6 +5,7 @@ from introduction import introduction_page  # Import introduction page function
 from EDA.classification import EDA  # Import the EDA class for classification
 from EDA.correlation_matrix import CorrelationMatrix  # Import the Correlation Matrix class
 
+
 # Get the absolute path to the directory containing this script
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -81,3 +82,18 @@ elif page == "Models":
     elif model_subpage == "2D CNN-BiLSTM":
         from Models.model_2D_CNN_BiLSTM.CNN_BiLSTM_2D import show_2d_cnn_bilstm
         show_2d_cnn_bilstm()
+
+elif page == "Demo":
+    st.title("Model Demo")
+
+    # Sidebar for Demo Pages
+    demo_subpage = st.sidebar.selectbox(
+        "Choose a Demo", 
+        ["1D CNN Interpretability and Preprocessing", "2D CNN-BiLSTM"]
+    )
+
+    # Add logic for each demo
+    if demo_subpage == "2D CNN-BiLSTM":
+        from Demos.demo_2D_CNN_BiLSTM import show_demo_2d_cnn_bilstm
+        show_demo_2d_cnn_bilstm()
+
