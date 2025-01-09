@@ -13,42 +13,51 @@ def model_overview():
 
     if section == "Why 2D-CNN-BiLSTM":
         st.markdown("""
+        ### Why I Chose the 2D-CNN-BiLSTM with XGBoost Architecture for ECG Classification
 
-        This model combines **2D-CNN** for spatial feature extraction and **BiLSTM** for temporal dependencies, followed by **XGBoost** for robust classification. Here's why I chose this architecture:
-
+        This model combines **2D-CNN** for spatial feature extraction and **BiLSTM** for temporal dependencies, followed by **XGBoost** for robust classification. Here's why this architecture is ideal for ECG classification:
 
         1. **Representation of ECG as 2D Data**:
             - ECG signals, originally 1D time-series data, are reshaped into **2D matrices** during preprocessing.
-            - This allows the model to analyze **spatial relationships** across the signal, such as patterns between P, QRS, and T waves.
+            - This transformation allows the model to analyze **spatial relationships** across the signal, such as the patterns between **P, QRS, and T waves**.
 
-        2. **Spatial Feature Extraction**:
-            - **2D CNN layers** excel at detecting **local patterns** in spatial data.
-            - For ECG signals:
-                - Spatial relationships capture key patterns within a single heartbeat.
-                - 2D convolutions enhance the ability to identify abnormalities or distinct rhythms.
+        2. **Spatial Feature Extraction with 2D-CNN**:
+            - **Why 2D-CNN?**
+                - Convolutional Neural Networks (**CNNs**) are highly effective at detecting **local spatial patterns** in data.
+            - **Application to ECG**:
+                - For ECG signals, CNN layers extract meaningful spatial relationships within a single heartbeat.
+                - These spatial features enhance the model's ability to detect **abnormalities or distinct rhythms** that signify conditions like arrhythmias.
 
-        3. **Improved Feature Hierarchy**:
-            - The **CNN layers** build a hierarchy of features:
-            - **Lower layers** detect basic patterns, like edges or shapes.
-            - **Deeper layers** identify higher-level features, such as specific ECG waveforms.
+        3. **Temporal Dependency Modeling with BiLSTM**:
+            - **Why BiLSTM?**
+                - Long Short-Term Memory (**LSTM**) networks excel at capturing **temporal dependencies** in sequential data.
+                - BiLSTM extends this by processing data in both **forward and backward directions**.
+            - **Combination with 2D-CNN**:
+                - Features extracted by the 2D-CNN are reshaped and fed into BiLSTM layers.
+                - This integration allows the model to simultaneously learn **spatial (CNN)** and **temporal (BiLSTM)** dependencies in the ECG data.
 
-        4. **Compatibility with BiLSTM**:
-            - The **2D-CNN** extracts spatial features, which are reshaped and fed into **BiLSTM layers**.
-            - This combination allows the model to learn both spatial and temporal dependencies in the ECG data.
+        4. **Improved Feature Classification with XGBoost**:
+            - **Why XGBoost?**
+                - XGBoost is a robust **gradient-boosting classifier** that excels at leveraging extracted features for precise classification.
+            - **How It Complements the Pipeline**:
+                - After feature extraction by 2D-CNN and temporal modeling by BiLSTM, XGBoost refines these features for robust classification.
+                - It ensures high accuracy and robustness in predicting five distinct ECG categories (**N, S, V, F, Q**).
 
         5. **Proven Success in Research**:
-            - **Cheng et al. (2021)**: Demonstrated the effectiveness of combining **CNN and BiLSTM** for ECG signal classification, showcasing how BiLSTM captures the temporal dependencies of ECG signals.
-            - **Teijeiro et al. (2018)**: Highlighted the robustness of using **XGBoost** for classifying ECG beats by leveraging features extracted from deep learning models.
+            - **Cheng et al. (2021)**:
+                - Demonstrated the effectiveness of combining **CNN and BiLSTM** for ECG classification.
+                - Highlighted how BiLSTM captures **temporal dependencies** crucial for ECG analysis.
+            - **Teijeiro et al. (2018)**:
+                - Showed that **XGBoost enhances the classification accuracy** when paired with deep learning feature extractors for ECG beat classification.
 
-        #### Why Combine 2D-CNN-BiLSTM with XGBoost?
+        ### Summary of Key Advantages:
+        - **2D-CNN**: Extracts high-level **spatial features** from the reshaped ECG signals.
+        - **BiLSTM**: Captures **sequential relationships** between heartbeats, essential for distinguishing normal and abnormal rhythms.
+        - **XGBoost**: Utilizes extracted features for robust classification, achieving **high performance** across all five ECG categories.
 
-        - **2D-CNN**: Extracts spatial features from the reshaped ECG signals.
-        - **BiLSTM**: Captures temporal dependencies between heartbeats, crucial for distinguishing between normal and abnormal rhythms.
-        - **XGBoost**: Refines these features to classify ECG signals into five distinct categories (N, S, V, F, Q) with improved accuracy and robustness.
-
-        #### Key References:
-        1. [Cheng, J., Zou, Q. & Zhao, Y. ***"ECG signal classification based on deep CNN and BiLSTM."*** BMC Med Inform Decis Mak 21, 365 (2021).](https://doi.org/10.1186/s12911-021-01736-y)
-        2. [Teijeiro, T. et al., ***"ECG beat classification using deep learning and XGBoost."*** Physiol. Meas. 39, 125005 (2018).](https://doi.org/10.1088/1361-6579/aad7e4)
+        ### References:
+        1. [Cheng, J., Zou, Q., & Zhao, Y. ***"ECG signal classification based on deep CNN and BiLSTM."*** BMC Medical Informatics and Decision Making 21, 365 (2021).](https://doi.org/10.1186/s12911-021-01736-y)
+        2. [Teijeiro, T. et al., ***"ECG beat classification using deep learning and XGBoost."*** Physiological Measurement 39, 125005 (2018).](https://doi.org/10.1088/1361-6579/aad7e4)
         """)
 
 

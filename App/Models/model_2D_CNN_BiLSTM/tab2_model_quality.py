@@ -1,4 +1,3 @@
-
 import os
 
 # Suppress TensorFlow oneDNN and logging warnings
@@ -15,16 +14,52 @@ from sklearn.metrics import classification_report, confusion_matrix, roc_curve, 
 import seaborn as sns
 import altair as alt
 import matplotlib.pyplot as plt
-@st.cache_resource
+
 # Function to load the CNN-BiLSTM model
+
+@st.cache_resource
 def load_cnn_bilstm_model():
+    """
+    Loads the CNN-BiLSTM model and ensures it is properly compiled.
+    """
     cnn_bilstm_model_path = "./Models/2D_CNN_BiLSTM/cnn_bilstm_model_fold_4.h5"
+    
+    # Check if the model file exists
     if not os.path.exists(cnn_bilstm_model_path):
         st.error(f"File not found: {cnn_bilstm_model_path}")
         return None
-    cnn_bilstm_model = load_model(cnn_bilstm_model_path)
-    cnn_bilstm_model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
-    return cnn_bilstm_model
+    
+    try:
+        # Load the model
+        cnn_bilstm_model = load_model(cnn_bilstm_model_path)
+        #st.write("Model loaded successfully!")
+
+        # Compile the model to ensure it has the necessary attributes
+        cnn_bilstm_model.compile(
+            optimizer='adam',
+            loss='categorical_crossentropy',
+            metrics=['accuracy']
+        )
+        #st.write("Model compiled successfully!")
+
+        # Safely check if compiled metrics are available
+        #if hasattr(cnn_bilstm_model, 'metrics_names') and cnn_bilstm_model.metrics_names:
+            #st.write("Model metrics are properly loaded:", cnn_bilstm_model.metrics_names)
+       # else:
+           # st.warning("Model metrics appear to be missing. Ensure the model was trained correctly.")
+
+        # Display model summary in logs (optional)
+        #with st.expander("Model Summary"):
+            #summary_str = []
+            #cnn_bilstm_model.summary(print_fn=lambda x: summary_str.append(x))
+            #st.text("\n".join(summary_str))
+
+        return cnn_bilstm_model
+
+    except Exception as e:
+        st.error(f"An error occurred while loading or compiling the model: {e}")
+        return None
+
 
 @st.cache_data
 # Function to load features, labels, predictions, and probabilities

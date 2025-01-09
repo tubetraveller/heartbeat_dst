@@ -1,5 +1,9 @@
 import os
 import streamlit as st
+
+# Set the page layout to wide
+st.set_page_config(layout="wide")
+
 from data_loading_auditing import load_datasets, display_data_loading_code, data_audit  # Import functions
 from introduction import introduction_page  # Import introduction page function
 from EDA.classification import EDA  # Import the EDA class for classification
@@ -89,7 +93,7 @@ elif page == "Demo":
     # Sidebar for Demo Pages
     demo_subpage = st.sidebar.selectbox(
         "Choose a Demo", 
-        ["1D CNN Interpretability and Preprocessing", "2D CNN-BiLSTM"]
+        ["2D CNN-BiLSTM"]
     )
 
     # Add logic for each demo
